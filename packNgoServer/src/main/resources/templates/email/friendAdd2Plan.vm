@@ -1,0 +1,6 @@
+#parse("templates/email/header.vm")
+<p>
+ &emsp;<b> Someone just added you to a plan on packNgo. <b><br/>
+ Login to packNgo to start planning. 
+ Happy Tripping
+#parse("templates/email/tail.vm")

@@ -1,0 +1,5 @@
+#parse("templates/email/header.vm")
+<p>
+ &emsp;<b> Your account has been activated. <b>
+
+#parse("templates/email/tail.vm")

@@ -1,0 +1,5 @@
+#parse("templates/email/header.vm")
+<p>
+ &emsp;<b> $friendName just added you as friend on packNgo. <b><br/>
+ Login to packNgo to start planning.
+#parse("templates/email/tail.vm")

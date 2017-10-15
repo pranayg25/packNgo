@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{dd/MM/yy hh:mm:ss:sss z}] %5p %c{2}, %m%n" />
+		</layout>
+	</appender>
+
+	<!--EDITED BY : PRANAY GOYAL
+	Date wise logs creation-->
+	<appender name="FILE_RELEASE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${jboss.server.log.dir}/logs/VV_MCF_Release_Log.txt" />
+		<param name="DatePattern" value=".yyyy-MM-dd"/>
+		<!-- <param name="MaxFileSize" value="1MB" />
+		<param name="MaxBackupIndex" value="100" /> -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{dd/MM/yy hh:mm:ss:sss z}] %5p %c{2}, %m%n" />
+		</layout>
+	</appender>
+
+
+	<appender name="FILE_DEBUG" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${jboss.server.log.dir}/logs/VV_MCF_Debug_Log.txt" />
+		<param name="DatePattern" value=".yyyy-MM-dd"/>
+		<!-- <param name="MaxFileSize" value="1MB" />
+		<param name="MaxBackupIndex" value="100" /> -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{dd/MM/yy hh:mm:ss:sss z}] %5p %c{2}: %m%n" />
+		</layout>
+	</appender>
+	
+	
+	<appender name="FILE_ERROR" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${jboss.server.log.dir}/logs/VV_MCF_Error_Log.txt" />
+		<param name="DatePattern" value=".yyyy-MM-dd"/>
+		<!-- <param name="MaxFileSize" value="1MB" />
+		<param name="MaxBackupIndex" value="100" /> -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{dd/MM/yy hh:mm:ss:sss z}] %5p %c{2}: %m%n" />
+		</layout>
+	</appender>
+	
+	
+	<appender name="FILE_BUSINESS" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${jboss.server.log.dir}/logs/VV_MCF_Business_Log.csv" />
+		<param name="DatePattern" value=".yyyy-MM-dd"/>
+		<!-- <param name="MaxFileSize" value="1MB" />
+		<param name="MaxBackupIndex" value="100" /> -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{dd/MM/yy hh:mm:ss:sss z}] %m%n" />
+		</layout>
+	</appender>	
+
+
+	<logger name="releaseLogger">
+		<level value="debug" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE_RELEASE" />
+	</logger>
+	
+		<!--EDITED BY : PRANAY GOYAL
+	Logs complete trace only in error and only single line in debug and release  -->
+	<logger name="errorLogger">
+		<level value="info" />
+		<appender-ref ref="CONSOLE" />
+		<!-- <appender-ref ref="FILE_RELEASE" />
+		<appender-ref ref="FILE_DEBUG" /> -->
+		<appender-ref ref="FILE_ERROR" />
+	</logger>
+	
+	<logger name="debugLogger">
+		<level value="debug" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE_DEBUG" />
+	</logger>
+
+
+	<logger name="businessLogger">
+		<level value="business" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE_BUSINESS" />
+	</logger>
+	
+	<!-- <root>
+		<priority value="info" />
+	</root> -->
+</log4j:configuration>
