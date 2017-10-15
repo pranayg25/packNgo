@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-sm-offset-3 col-sm-6 well" style="">
+        <form name="planForm">
+            <div class="form-group">
+                <label>Enter a destination:</label>
+                <input type="text" google-place ng-model="venue.address_line_1" aria-label="search" class="form-control" required>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 form-group">
+                    <label>Start date:</label>
+                    <input type="date" class="form-control" ng-model="startDate" required>
+                </div>
+                <div class="col-sm-4 form-group">
+                    <label>End date:</label>
+                    <input type="date" class="form-control" ng-model="endDate" required>
+                </div>
+                <div class="col-sm-4 form-group">
+                    <label>Hours per day:</label>
+                    <input type="number" class="form-control" ng-model="hours" min="1" required>
+                </div>
+            </div>
+            <div class="row">
+
+                <!--<div class="col-sm-6 form-group">
+                    <label>End my day at:</label>
+                    <input type="time" class="form-control" ng-model="dayEnd" required>
+                </div>-->
+            </div>
+            <label> Activities:</label>
+            <div class="row">
+                <div class="col-sm-4" ng-repeat="activity in activities">
+                    <label class="checkbox-inline"><input type="checkbox" name="activities[]" value="{{activity.name}}" ng-click="toggleActivitySelection(activity.value)">{{activity.name}}</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="makeMyPlan(planForm.$valid)">Get my plan!!!</button>
+        </form>
+    </div>
+</div>

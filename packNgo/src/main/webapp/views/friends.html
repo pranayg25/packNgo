@@ -1,0 +1,61 @@
+<div class="container">
+
+    <div class="row" style="text-align: center">
+        <div class="col-sm-offset-3 col-sm-6 center">
+            <form name="findFriendForm">
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Enter email address...." ng-model="email" required>
+                    <span class="input-group-btn"><button class="btn btn-default" type="submit" ng-click="findFriends(findFriendForm.$valid)">Find Friends!</button></span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <table class="table table-hover table-bordered" >
+                    <thead>
+                    <tr>
+                        <th class="col-sm-5">Name</th>
+                        <th class="col-sm-5">Email</th>
+                        <th class="col-sm-2">Options</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="friend in newFriends">
+                        <th>{{friend.firstName}} {{friend.lastName}}</th>
+                        <th>{{friend.email}}</th>
+                        <th><button ng-click="addFriend(friend.id)">Add</button></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <h1>My Friends</h1>
+                <table class="table table-hover table-bordered" >
+                    <thead>
+                    <tr>
+                        <th class="col-sm-5">Name</th>
+                        <th class="col-sm-5">Email</th>
+                        <th class="col-sm-2">Options</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="friend in friends">
+                        <th>{{friend.firstName}} {{friend.lastName}}</th>
+                        <th>{{friend.email}}</th>
+                        <th><button ng-click="removeFriend(friend.id)">Remove</button></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

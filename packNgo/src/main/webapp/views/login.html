@@ -1,0 +1,42 @@
+<div class="col-sm-offset-3 col-sm-6 well" style="">
+    <h1>Login</h1>
+    <form name="loginForm">
+        <div class="form-group">
+            <label>EmailId:</label>
+            <input type="email" class="form-control" ng-model="loginData.email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control" ng-model="loginData.password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-click="login(loginForm.$valid)">Login</button>
+    </form>
+</div>
+
+<div class="col-sm-offset-3 col-sm-6 well" style="">
+    <h1>Signup</h1>
+    <form name="signUpForm">
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <label>First name:</label>
+                <input type="text" class="form-control" ng-model="firstName" name="firstName" required>
+            </div>
+            <div class="col-sm-6 form-group">
+                <label>lastname:</label>
+                <input type="text" class="form-control" ng-model="lastName" name="lastName" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <label>Email:</label>
+                <input type="email" class="form-control" ng-model="email" name="email" required>
+            </div>
+            <div class="col-sm-6 form-group">
+                <label>Password:</label>
+                <input type="password" class="form-control" ng-model="password" name="password" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-click="signUp(signUpForm.$valid)">SignUp</button>
+    </form>
+</div>
